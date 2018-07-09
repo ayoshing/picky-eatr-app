@@ -9,8 +9,8 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-    @powers = Power.all
-    @heroine = Heroine.new
+    @restaurants = Restaurant.all
+    @restaurant = Restaurant.new
   end
 
   def create
