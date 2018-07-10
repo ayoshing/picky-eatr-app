@@ -1,4 +1,8 @@
 class Cuisine < ApplicationRecord
   has_many :restaurants
-  belongs_to :preference
+  has_one :preference
+
+  validates :name, uniqueness: true
+
+
 end

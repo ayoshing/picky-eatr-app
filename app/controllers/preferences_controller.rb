@@ -16,6 +16,7 @@ class PreferencesController < ApplicationController
 
 
   def new
+    @cuisines = Cuisine.all
     @preference = Preference.new
   end
 

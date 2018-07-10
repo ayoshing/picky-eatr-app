@@ -1,20 +1,20 @@
 class CuisinesController < ApplicationController
   def index
-    @preferences = Preference.all
+    @cuisines = Cuisine.all
     if params[:search]
-      @preferences = Preference.select {|preference| preference.name == params[:search].downcase}
+      @cuisines = Cuisine.select {|cuisine| cuisine.name == params[:search].downcase}
     else
-      @preferences = Preference.all
+      @cuisines = Cuisine.all
     end
   end
 
   def show
-    @preference = Preference.find(params[:id])
+    @cuisine = Cuisine.find(params[:id])
   end
 
 
   private
-  def preference_params
-    params.require(:preference).permit(:name)
+  def cuisine_params
+    params.require(:cuisine).permit(:name)
   end
 end
