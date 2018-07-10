@@ -30,7 +30,7 @@ class PreferencesController < ApplicationController
 
   private
   def preference_params
-    params.require(:preference).permit(:name, :user_id)
+    params.require(:preference).permit(:name, :user_id, cuisine_ids:[])
   end
 
 end
