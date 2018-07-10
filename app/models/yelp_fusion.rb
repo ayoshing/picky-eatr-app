@@ -5,7 +5,7 @@ require 'pry'
 
 # Place holders for Yelp Fusion's API key. Grab it
 # from https://www.yelp.com/developers/v3/manage_app
-API_KEY = "htpxG0vBkP__nt9kbBuLT_s4D6OAnlJ97WFO_EiBUXnlo3EMDmcCnQwsjE1zHybIRqh6rHfVdLc5HgxnZlhFwqDJYu0pUjiIuB0ocVnzEYIr_GFtQJ0uuRtJcodDW3Yx"
+API_KEY =
 
 
 
