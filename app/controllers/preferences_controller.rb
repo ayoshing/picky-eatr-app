@@ -16,7 +16,7 @@ class PreferencesController < ApplicationController
 
 
   def new
-    @preference = preference.new
+    @preference = Preference.new
   end
 
   def create
