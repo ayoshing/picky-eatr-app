@@ -1,0 +1,17 @@
+<h2>All Restaurants</h2>
+
+<!-- <br>
+<%= form_tag heroines_path, method: :get, id: "search-form" do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search by Supoerpowers"%>
+  <%= submit_tag 'Search', :name => nil %>
+<% end %>
+<br> -->
+
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= link_to restaurant.name, restaurant_path(restaurant) %>
+    </li>
+    <br>
+  <% end %>
+</ul>
