@@ -4,7 +4,7 @@ require 'pry'
 
 class Yelp
 
-  API_KEY =
+  API_KEY = 
 
   API_HOST = "https://api.yelp.com"
   SEARCH_PATH = "/v3/businesses/search"
@@ -30,3 +30,5 @@ class Yelp
   end
 
 end
+binding.pry
+Pry.start
