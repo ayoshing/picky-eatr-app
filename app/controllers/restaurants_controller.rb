@@ -8,29 +8,13 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  def new
-    @restaurants = Restaurant.all
-    @restaurant = Restaurant.new
-  end
-
-  def create
-    @heroine = Heroine.new(heroine_params)
-    if @heroine.valid?
-      @heroine.save
-      redirect_to heroine_path(@heroine)
-    else
-      flash[:error] = @heroine.errors.full_messages
-      redirect_to new_heroine_path
-    end
-  end
-
   def show
-    @heroine = Heroine.find(params[:id])
+    @restaurant = Restaurant.find(params[:id])
   end
 
   private
-  def heroine_params
-    params.require(:heroine).permit(:name, :super_name, :power_id)
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :cuisine_id)
   end
 
 end
