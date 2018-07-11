@@ -25,9 +25,9 @@ User
           3. real username => validates :presence
           4. address => validates actual address? (CHECK IF THERE IS A GEM FOR THIS)
         - once user account is successfully created, it'll route to show page (user_path)
-          - show page will contain a "Pick Cuisine" button that will bring the user to cuisine page(new path?)
-            - cuisine page will ask the user to select or enter x amount of cuisines
-              - once submitted, the parameters are entered into elimination tournament page, which displays 2 (Round Robin Tournament)
+          - show page will contain a "preferences" button that will bring the user to preferences new page
+            - preferences page will have a list of cuisines checkboxes for the user to select as part of the matchups
+              - once submitted, it'll take those selected cuisine arguments and route user to index page with the matchup
 
 
     2. if existing users

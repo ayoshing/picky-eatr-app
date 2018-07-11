@@ -2,11 +2,6 @@ class PreferencesController < ApplicationController
 
   def index
     @preferences = Preference.all
-    if params[:search]
-      @preferences = Preference.select {|preference| preference.name == params[:search].downcase}
-    else
-      @preferences = Preference.all
-    end
   end
 
   def show
@@ -19,18 +14,20 @@ class PreferencesController < ApplicationController
   end
 
   def create
+    cuisine_arr = []
+    preference_params[:cuisine_ids].each do |id|
+      cuisine_arr << id
+    end
 
     @preference = Preference.new(preference_params)
+    @preference.save
+    redirect_to preferences_path
     byebug
-      @preference.save
-
-      redirect_to preferences_path
-
   end
 
   private
   def preference_params
-    params.require(:preference).permit(:name, :user_id, cuisine_ids:[])
+    params.require(:preference).permit(:user_id, cuisine_ids: [])
   end
 
 end
