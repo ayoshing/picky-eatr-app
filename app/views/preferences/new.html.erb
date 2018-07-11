@@ -2,6 +2,7 @@
 
 <%= form_for @preference do |f| %>
 <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %><br>
+<%= f.collection_select :user_id, User.all, :id, :name %>
 
 <%= f.submit "Update Preferences" %>
 <% end %>
