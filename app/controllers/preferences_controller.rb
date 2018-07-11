@@ -6,6 +6,9 @@ class PreferencesController < ApplicationController
 
   def show
     @preference = Preference.find(params[:id])
+    @cuisines_preferences = CuisinesPreference.all.select do |cuisine_pref|
+      cuisine_pref.preference_id == @preference.id
+    end
   end
 
   def new
@@ -15,16 +18,15 @@ class PreferencesController < ApplicationController
   end
 
   def create
-    @preference = Preference.create(preference_params)
-    preference_params[:cuisine_ids].shift
-    @cuisinespreference = CuisinesPreference.new(preference_id: @preference.id, cuisine_id: preference_params[:cuisine_id])
-    # preference_params[:cuisine_ids].each do |id|
-    #   @preference.cuisines << Cuisine.find(id) if id != ""
-    # end
+    @preference = Preference.new(preference_params)
+
+    preference_params[:cuisine_ids].each do |cuid|
+      CuisinesPreference.create(preference_id: @preference.id, cuisine_id: cuid.to_i)
+    end
 
     @preference.save
+    redirect_to preference_path(@preference)
 
-    redirect_to preferences_path
 
   end
 
