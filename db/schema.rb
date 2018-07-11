@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20180711213017) do
 
   create_table "cuisines", force: :cascade do |t|
@@ -22,6 +23,7 @@ ActiveRecord::Schema.define(version: 20180711213017) do
     t.integer "cuisine_id"
     t.integer "preference_id"
   end
+
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"

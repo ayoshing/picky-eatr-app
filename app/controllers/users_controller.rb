@@ -18,6 +18,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+
+    # if @user.save
+    #   redirect_to secrets_path, notice: "User was successfully created"
+    # else
+    #   render :new
     if @user.valid?
       @user.save
       redirect_to user_path(@user)
@@ -29,6 +34,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :user_name, :address)
+    params.require(:user).permit(:name, :password, :address)
   end
 end
