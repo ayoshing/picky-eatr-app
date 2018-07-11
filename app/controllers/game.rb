@@ -3,7 +3,6 @@ require 'pry'
 preference = ["a", "b", "c", "d", "e", "f", "g"]
 
 def match(array)
-  puts array
   matches = []
   pick = ""
 
@@ -11,21 +10,17 @@ def match(array)
   rand_two.each do |num|
     array.delete(num)
   end
-  matches << rand_two
-  binding.pry
-  until matches.length == 1 do
-    puts matches
-    # if pick == matches[0]
-    #   matches.pop
-    # else
-    #   matches.shift
-    # end
+  matches = rand_two
+  until array.length == 0 do
+    puts "Pick selection: #{matches[0]} or #{matches[1]}"
     pick = gets.chomp
     matches = [pick]
     rand_one = array.sample
-    match << rand_one
     array.delete(rand_one)
+    matches << rand_one
   end
+
+  puts "Winner is #{pick}"
 
 end
 
