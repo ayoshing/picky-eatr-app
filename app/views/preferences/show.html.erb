@@ -1,7 +1,7 @@
 <% if @cuisines_preferences.length > 0 %>
 
 <%= form_for @cuisines_preference do |f| %>
-<%= f.collection_radio_buttons :cuisine_id, session[:matches], :id, :name %>
+<%= f.collection_radio_buttons :cuisine_id, @match_cuisines, :id, :name %>
 <%= f.submit "Pick"%>
 <%end%>
 <% else %>

@@ -23,18 +23,21 @@ class PreferencesController < ApplicationController
       session[:delete_tracker].each do |cuisine_id|
         @cuisines_preferences.delete_if{|instance| instance.cuisine_id == cuisine_id}
       end
-      byebug
+
       # @cuisines_preferences.delete_if do |cp|
       #   session[:delete_tracker].each do |cuisine_id|
       #     cp.cuisine_id == cuisine_id
       #   end
-
-      next_cuisine = @cuisines_preferences.map {|match| match.cuisine }.sample
-
-      # session[:cuisines_preferences].reject!{|instance| instance.cuisine == next_cuisine}
-      @match_cuisines = [Cuisine.find(session[:selected_cuisine_id]), next_cuisine]
-
-      session[:matches] = @match_cuisines
+        next_cuisine = @cuisines_preferences.map {|match| match.cuisine }.sample
+        if next_cuisine == Cuisine.find(session[:selected_cuisine_id])
+          session[:delete_tracker] << next_cuisine.id
+          session[:delete_tracker].each do |cuisine_id|
+            @cuisines_preferences.delete_if{|instance| instance.cuisine_id == cuisine_id}
+          end
+          next_cuisine = @cuisines_preferences.map {|match| match.cuisine }.sample
+        end
+        @match_cuisines = [Cuisine.find(session[:selected_cuisine_id]), next_cuisine]
+        session[:matches] = @match_cuisines
     end
   end
 

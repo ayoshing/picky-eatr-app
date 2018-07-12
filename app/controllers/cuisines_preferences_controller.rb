@@ -6,7 +6,7 @@ class CuisinesPreferencesController < ApplicationController
     session[:remove_cuisine] = session[:matches].select do |cuisine|
       cuisine["id"] != session[:selected_cuisine_id].to_i
     end
-    byebug
+
     session[:delete_tracker] << session[:remove_cuisine][0]["id"]
     session[:delete_tracker].uniq!
     session[:matchup_start] = true
