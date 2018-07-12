@@ -1,3 +1,4 @@
-<% @cuisines_preferences.map do |cui_pref| %>
-<%= cui_pref.cuisine.name %>
+<%= form_for @cuisines_preference do |f| %>
+<%= f.collection_radio_buttons :cuisine_id, @match_cuisines, :id, :name %>
+<%= f.submit "Pick"%>
 <% end %>

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   resources :restaurants
   resources :favorites
-  resources :comparisons
   resources :cuisines
   resources :preferences
   resources :users
