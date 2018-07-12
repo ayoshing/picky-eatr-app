@@ -1,39 +1,47 @@
 class PreferencesController < ApplicationController
-
+  before_action :cuisine_preference, only: [:show]
   def index
     @preferences = Preference.all
   end
 
   def show
-    @preference = Preference.find(params[:id])
-    session[:preference_id] = params[:id]
-
-    @cuisines_preference = CuisinesPreference.new
-
-    @cuisines_preferences = CuisinesPreference.all.select do |cuisine_pref|
-      cuisine_pref.preference_id == @preference.id
-    end
 
     if !session[:matchup_start]
-      @match_cuisines = @cuisines_preferences.slice!(0..1).map do |match|
+      @match_cuisines = @cuisines_preferences.slice(0..1).map do |match|
         match.cuisine
       end
+
+      session[:delete_tracker] = []
+
+      @match_cuisines.each do |cuisine|
+        session[:delete_tracker] << cuisine.id
+      end
+
       session[:matches] = @match_cuisines
+
     else
-      @cuisines_preferences.delete_if {|cf| cf.cuisine_id == session[:matches][0]["id"] || cf.cuisine_id == session[:matches][1]["id"]}
+      session[:delete_tracker].each do |cuisine_id|
+        @cuisines_preferences.delete_if{|instance| instance.cuisine_id == cuisine_id}
+      end
+      byebug
+      # @cuisines_preferences.delete_if do |cp|
+      #   session[:delete_tracker].each do |cuisine_id|
+      #     cp.cuisine_id == cuisine_id
+      #   end
 
       next_cuisine = @cuisines_preferences.map {|match| match.cuisine }.sample
 
+      # session[:cuisines_preferences].reject!{|instance| instance.cuisine == next_cuisine}
       @match_cuisines = [Cuisine.find(session[:selected_cuisine_id]), next_cuisine]
-      byebug
-    end
 
+      session[:matches] = @match_cuisines
+    end
   end
 
   def new
     @cuisines = Cuisine.all
     @preference = Preference.new
-
+    session[:delete_tracker] = []
   end
 
   def create
@@ -51,8 +59,6 @@ class PreferencesController < ApplicationController
       cuisine_pref.preference_id == @preference.id
     end
 
-    session[:selected_cuisines] = @cuisines_preferences
-
     redirect_to preference_path(@preference)
 
   end
@@ -64,6 +70,19 @@ class PreferencesController < ApplicationController
   private
   def preference_params
     params.require(:preference).permit(:user_id, cuisine_ids:[])
+  end
+
+  def cuisine_preference
+    @preference = Preference.find(params[:id])
+    session[:preference_id] = params[:id]
+    @cuisines_preference = CuisinesPreference.new
+    @cuisines_preferences = CuisinesPreference.all.select do |cuisine_pref|
+      cuisine_pref.preference_id == @preference.id
+    end
+
+
+
+    session[:cuisines_preferences] = @cuisines_preferences
   end
 
 end
