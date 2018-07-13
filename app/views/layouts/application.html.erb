@@ -17,7 +17,19 @@
 
   <body>
     <div class="nav">
-      <h1 class="logo">PICKY EATR <i class="fas fa-utensils" style="font-size:1.5em;margin-top:10px"></i></h1>
+      <div class="nav-item-logo"><a href="<%= preferences_path %>">
+        <h1 class="logo" style="color:white">PICKY EATR <i class="fas fa-utensils" style="font-size:1.5em;margin-top:10px"></i></h1></a>
+      </div>
+      <div class="nav-item-logout">
+        <header class="login">
+        <% if @logged_in_user %>
+          <%= link_to "Logout", logout_path, method: 'delete' %>
+        <% else %>
+          <%= link_to "Register", new_user_path %> &nbsp;&nbsp;|&nbsp;&nbsp;
+          <%= link_to "Login", new_session_path %>
+        <% end %>
+        </header>
+      </div>
     </div>
     <%= yield %>
   </body>

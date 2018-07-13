@@ -66,7 +66,7 @@ class PreferencesController < ApplicationController
     @cuisines_preferences = CuisinesPreference.all.select do |cuisine_pref|
       cuisine_pref.preference_id == @preference.id
     end
-    byebug
+    
     if @preference.valid?
       redirect_to preference_path(@preference), notice: "Preference successfully created."
     else
@@ -92,7 +92,7 @@ class PreferencesController < ApplicationController
 
   private
   def preference_params
-    params.require(:preference).permit(:user_id, cuisine_ids:[])
+    params.require(:preference).permit(@logged_in_user.id, cuisine_ids:[])
   end
 
   def cuisine_preference
