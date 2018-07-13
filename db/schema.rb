@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180711213017) do
+ActiveRecord::Schema.define(version: 20180713060749) do
 
   create_table "cuisines", force: :cascade do |t|
     t.string "name"
@@ -30,15 +30,8 @@ ActiveRecord::Schema.define(version: 20180711213017) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "matches", force: :cascade do |t|
-    t.integer "cuisine_id"
-    t.integer "challenger_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "preferences", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,10 +43,14 @@ ActiveRecord::Schema.define(version: 20180711213017) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "user_name"
-    t.string "address"
+    t.string "username"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

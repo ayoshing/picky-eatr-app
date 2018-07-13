@@ -1,7 +1,8 @@
 class PreferencesController < ApplicationController
   before_action :cuisine_preference, only: [:show]
+  before_action :set_authors, only: %i[new create edit update]
   def index
-    @preferences = Preference.all
+    @preferences = @logged_in_user.preferences
   end
 
   def show
@@ -49,26 +50,40 @@ class PreferencesController < ApplicationController
 
   def create
     @preference = Preference.new(preference_params)
-
+    @preference.author = @logged_in_user
     preference_params[:cuisine_ids].each do |cuid|
       CuisinesPreference.create(preference_id: @preference.id, cuisine_id: cuid.to_i)
     end
 
-    @preference.save
+
 
     session[:preference_id] = @preference.id
 
     @cuisines_preferences = CuisinesPreference.all.select do |cuisine_pref|
       cuisine_pref.preference_id == @preference.id
     end
-
-    redirect_to preference_path(@preference)
-
+    if @preference.save
+      redirect_to preference_path(@preference), notice: "Preference successfully created."
+    else
+      render :new
+    end
   end
+
 
   def update
-
+    if @preference.author == @logged_in_user && @preference.update(preference_params)
+      redirect_to @preference, notice: 'Secret was successfully updated.'
+    else
+      render :edit
+    end
   end
+
+  # DELETE /secrets/1
+  def destroy
+    @preference.destroy if @preference.author == @logged_in_user
+    redirect_to preferences_url, notice: 'Secret was successfully destroyed.'
+  end
+
 
   private
   def preference_params
@@ -82,10 +97,10 @@ class PreferencesController < ApplicationController
     @cuisines_preferences = CuisinesPreference.all.select do |cuisine_pref|
       cuisine_pref.preference_id == @preference.id
     end
-
-
-
     session[:cuisines_preferences] = @cuisines_preferences
   end
 
+  def set_authors
+    @authors = User.all
+  end 
 end
