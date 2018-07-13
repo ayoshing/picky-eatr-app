@@ -39,7 +39,11 @@ class PreferencesController < ApplicationController
         end
         @match_cuisines = [Cuisine.find(session[:selected_cuisine_id]), next_cuisine]
         session[:matches] = @match_cuisines
-    end
+
+        if @cuisines_preferences.length == 0
+          @results = Yelp.search_yelp(Cuisine.find(session[:selected_cuisine_id].to_i).name, User.find(session[:user_id]).address)["businesses"]
+        end
+      end
   end
 
   def new
@@ -97,6 +101,10 @@ class PreferencesController < ApplicationController
     @cuisines_preferences = CuisinesPreference.all.select do |cuisine_pref|
       cuisine_pref.preference_id == @preference.id
     end
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/css
     session[:cuisines_preferences] = @cuisines_preferences
   end
 
