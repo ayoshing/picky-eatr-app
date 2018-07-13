@@ -4,8 +4,7 @@ require 'pry'
 
 class Yelp
 
-  #enter yelp API key
-  API_KEY =
+  API_KEY = 
 
   API_HOST = "https://api.yelp.com"
   SEARCH_PATH = "/v3/businesses/search"

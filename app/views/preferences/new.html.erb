@@ -1,9 +1,18 @@
-<h1>Preferences New Page</h1>
+<h2 class="logo">Pick all the cuisines you're interested in:</h2>
 <% session[:matchup_start] = false %>
 
-<%= form_for @preference do |f| %>
-<%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name %><br>
+<div class="preference-form"><%= form_for @preference, html:{class:'ui segment flex-container'} do |f| %>
+<%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name do |cb| %>
+  <%= cb.label do %>
+  <div class="check-box">
+    <%= cb.check_box class:"check-box-input"%>
+    <%= cb.text %>
+  </div>
+    <% end %><br>
+    <% end %>
 <%= f.collection_select :user_id, User.all, :id, :name %>
-
-<%= f.submit "Update Preferences" %>
+</div>
+<div class="pick-food-btn" style="margin-top:10px">
+  <%= f.submit "Let's go!", class:"massive ui red button" %>
+</div>
 <% end %>
