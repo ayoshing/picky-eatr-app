@@ -57,7 +57,7 @@ class PreferencesController < ApplicationController
     preference_params[:cuisine_ids].each do |cuid|
       CuisinesPreference.create(preference_id: @preference.id, cuisine_id: cuid.to_i)
     end
-
+    
     @preference.save
 
     session[:preference_id] = @preference.id
