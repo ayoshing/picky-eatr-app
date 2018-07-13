@@ -1,5 +1,14 @@
-<h2 class="logo"><%=  @user.name%>'s Show Page</h2>
+<p id="notice"><%= notice %></p>
 
-<div class="start-pick-btn">
-<%= link_to "Pick Food", new_preference_path, class:"ui massive red button" %>
-</div>
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @user.password_digest %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

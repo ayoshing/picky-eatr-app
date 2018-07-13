@@ -10,7 +10,7 @@
   </div>
     <% end %><br>
     <% end %>
-<%= f.collection_select :user_id, User.all, :id, :name %>
+<%= f.collection_select :user_id, User.all, :id, :username %>
 </div>
 <div class="pick-food-btn" style="margin:10px 0">
   <%= f.submit "Let's go!", class:"massive ui red button" %>
