@@ -66,6 +66,7 @@ class PreferencesController < ApplicationController
     @cuisines_preferences = CuisinesPreference.all.select do |cuisine_pref|
       cuisine_pref.preference_id == @preference.id
     end
+    byebug
     if @preference.valid?
       redirect_to preference_path(@preference), notice: "Preference successfully created."
     else
