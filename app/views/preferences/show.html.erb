@@ -6,6 +6,13 @@
 <%end%>
 <% else %>
 
-<%= Cuisine.find(session[:selected_cuisine_id]).name %>
+<h1><%= Cuisine.find(session[:selected_cuisine_id]).name %></h1>
+<ul>
+<% @results.each do |restaurant| %>
+  <li>
+    <%= link_to restaurant["name"], restaurant["url"] %>
+  </li>
+  <% end %>
+</ul>
 
 <% end %>
