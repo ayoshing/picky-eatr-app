@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20180713060749) do
   end
 
   create_table "preferences", force: :cascade do |t|
-    t.integer "author_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

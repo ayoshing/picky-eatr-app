@@ -14,9 +14,9 @@
   <tbody>
     <% @preferences.each do |preference| %>
       <tr>
-        <td><%= secret.text %></td>
-        <td><%= secret.author.username %></td>
-        <td><%= link_to 'Edit', edit_preference_path(secret) %></td>
+
+        <td><%= preference.author.username %></td>
+        <td><%= link_to 'Edit', edit_preference_path(preference) %></td>
         <td><%= link_to 'Destroy', preference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Show', preference %></td>
       </tr>
@@ -26,4 +26,4 @@
 
 <br>
 
-<%= link_to 'New Secret', new_preference_path %>
+<%= link_to 'Create Your Preferences', new_preference_path %>

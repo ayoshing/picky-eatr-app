@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
      @user = User.find_by(username: user_params[:username])
      if @user && @user.authenticate(user_params[:password])
        log_in_user(@user.id)
-       redirect_to secrets_url
+       redirect_to preferences_url
      else
        @error = "Those credentials don't match anything we have in the database"
        render :new

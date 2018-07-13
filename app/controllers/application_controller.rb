@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
 
   def authorized?
     redirect_to new_session_path unless !!get_logged_in_user
-  end  
+  end
+
+  def logout_user
+    session[:user_id] = nil
+  end 
 
 end

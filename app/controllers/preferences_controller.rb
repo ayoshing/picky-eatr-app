@@ -54,7 +54,7 @@ class PreferencesController < ApplicationController
 
   def create
     @preference = Preference.new(preference_params)
-    @preference.author = @logged_in_user
+    @preference.user = @logged_in_user
     preference_params[:cuisine_ids].each do |cuid|
       CuisinesPreference.create(preference_id: @preference.id, cuisine_id: cuid.to_i)
     end
@@ -101,14 +101,10 @@ class PreferencesController < ApplicationController
     @cuisines_preferences = CuisinesPreference.all.select do |cuisine_pref|
       cuisine_pref.preference_id == @preference.id
     end
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/css
     session[:cuisines_preferences] = @cuisines_preferences
   end
 
   def set_authors
     @authors = User.all
-  end 
+  end
 end
