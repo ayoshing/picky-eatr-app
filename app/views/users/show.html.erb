@@ -1,3 +1,5 @@
-<h1><%=  @user.name%> Show Page</h1>
+<h2 class="logo"><%=  @user.name%>'s Show Page</h2>
 
-<%= link_to "Pick Food", new_preference_path %>
+<div class="start-pick-btn">
+<%= link_to "Pick Food", new_preference_path, class:"ui massive red button" %>
+</div>

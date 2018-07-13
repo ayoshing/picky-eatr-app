@@ -38,12 +38,14 @@ h1.logo {
 
 .check-box {
   border: 1px rgb(166, 166, 166) solid;
-  padding: 100px;
+  padding: 70px;
   margin: 20px;
   border-radius: 5%;
   font-size: 20px;
   background: rgb(248, 248, 248);
   box-shadow: 0 4px 0 0 #bb4f4f;
+  width: 200px;
+  text-align: center;
 }
 
 .check-box:hover {
@@ -114,4 +116,12 @@ h1.logo {
 .nav {
   background: #d95c5c;
   color: white;
+}
+
+.login-page {
+  text-align: center;
+}
+
+.start-pick-btn {
+  text-align: center;
 }

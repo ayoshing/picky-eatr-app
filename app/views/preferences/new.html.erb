@@ -1,4 +1,4 @@
-<h2 class="logo">Pick all the cuisines you're interested in:</h2>
+<h2 class="logo">Pick at least <strong>2</strong> cuisines you're interested in:</h2>
 <% session[:matchup_start] = false %>
 
 <div class="preference-form"><%= form_for @preference, html:{class:'ui segment flex-container'} do |f| %>
@@ -12,7 +12,7 @@
     <% end %>
 <%= f.collection_select :user_id, User.all, :id, :name %>
 </div>
-<div class="pick-food-btn" style="margin-top:10px">
+<div class="pick-food-btn" style="margin:10px 0">
   <%= f.submit "Let's go!", class:"massive ui red button" %>
 </div>
 <% end %>
