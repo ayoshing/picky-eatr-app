@@ -21,6 +21,6 @@ skip_before_action :authorized?, only: %i[new create]
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :address)
   end
 end

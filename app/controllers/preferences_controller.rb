@@ -66,7 +66,7 @@ class PreferencesController < ApplicationController
     @cuisines_preferences = CuisinesPreference.all.select do |cuisine_pref|
       cuisine_pref.preference_id == @preference.id
     end
-    byebug
+
     if @preference.valid?
       redirect_to preference_path(@preference), notice: "Preference successfully created."
     else
@@ -76,8 +76,8 @@ class PreferencesController < ApplicationController
 
 
   def update
-    if @preference.author == @logged_in_user && @preference.update(preference_params)
-      redirect_to @preference, notice: 'Secret was successfully updated.'
+    if @preference.user == @logged_in_user && @preference.update(preference_params)
+      redirect_to @preference, notice: 'Preference was successfully updated.'
     else
       render :edit
     end
@@ -85,14 +85,14 @@ class PreferencesController < ApplicationController
 
   # DELETE /secrets/1
   def destroy
-    @preference.destroy if @preference.author == @logged_in_user
-    redirect_to preferences_url, notice: 'Secret was successfully destroyed.'
+    @preference.destroy if @preference.user == @logged_in_user
+    redirect_to preferences_url, notice: 'Preference was successfully destroyed.'
   end
 
 
   private
   def preference_params
-    params.require(:preference).permit(:user_id, cuisine_ids:[])
+    params.require(:preference).permit(@logged_in_user.id, cuisine_ids:[])
   end
 
   def cuisine_preference

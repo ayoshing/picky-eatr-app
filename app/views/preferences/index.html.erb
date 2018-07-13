@@ -5,17 +5,18 @@
 <table>
   <thead>
     <tr>
-      <th>Text</th>
-      <th>Author</th>
+      <th>Username</th>
+      <th>Options</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+
     <% @preferences.each do |preference| %>
       <tr>
-
-        <td><%= preference.author.username %></td>
+        <%byebug%>
+        <td><%= preference.user.username %></td>
         <td><%= link_to 'Edit', edit_preference_path(preference) %></td>
         <td><%= link_to 'Destroy', preference, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td><%= link_to 'Show', preference %></td>
