@@ -10,12 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20180709195046) do
-=======
 ActiveRecord::Schema.define(version: 20180711125925) do
->>>>>>> 3866f856621d49d5a71bd77ddeb1e9f7329b1422
 =======
 ActiveRecord::Schema.define(version: 20180713060749) do
 >>>>>>> final-countdown
@@ -26,9 +21,6 @@ ActiveRecord::Schema.define(version: 20180713060749) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
   create_table "cuisines_preferences", id: false, force: :cascade do |t|
     t.integer "preference_id", null: false
     t.integer "cuisine_id", null: false
@@ -38,7 +30,6 @@ ActiveRecord::Schema.define(version: 20180713060749) do
   create_table "cuisines_preferences", force: :cascade do |t|
     t.integer "cuisine_id"
     t.integer "preference_id"
->>>>>>> final-countdown
   end
 
 >>>>>>> 3866f856621d49d5a71bd77ddeb1e9f7329b1422
@@ -51,16 +42,10 @@ ActiveRecord::Schema.define(version: 20180713060749) do
 
   create_table "preferences", force: :cascade do |t|
     t.integer "user_id"
-<<<<<<< HEAD
-    t.integer "cuisine_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-=======
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
 <<<<<<< HEAD
     t.string "cuisine_ids"
->>>>>>> 3866f856621d49d5a71bd77ddeb1e9f7329b1422
 =======
 >>>>>>> final-countdown
   end
