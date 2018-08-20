@@ -30,5 +30,3 @@ class Yelp
   end
 
 end
-binding.pry
-Pry.start

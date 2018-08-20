@@ -13,3 +13,131 @@
  *= require_tree .
  *= require_self
  */
+* {
+
+}
+
+h1.logo {
+  margin-top: 10px;
+  text-align: left;
+  margin-left: 10px;
+  font-weight: bold;
+  font-family: 'Gaegu', cursive;
+}
+
+.logo {
+  font-family: 'Gaegu', cursive;
+  text-align: center;
+  font-weight: bold;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.check-box {
+  border: 1px rgb(166, 166, 166) solid;
+  padding: 70px;
+  margin: 20px;
+  border-radius: 5%;
+  font-size: 20px;
+  background: rgb(248, 248, 248);
+  box-shadow: 0 4px 0 0 #bb4f4f;
+  width: 200px;
+  text-align: center;
+}
+
+.check-box:hover {
+  background-color: #d95c5c;
+  cursor: pointer;
+  color: white;
+  border: 1px #d95c5c solid;
+}
+
+.check-box:active {
+  transform: translate(0px, 4px);
+  box-shadow: none;
+}
+
+.radio-btn {
+  border: 1px rgb(166, 166, 166) solid;
+  padding: 200px;
+  margin: 50px;
+  border-radius: 5%;
+  font-size: 30px;
+  background: rgb(248, 248, 248);
+  box-shadow: 0 4px 0 0 #bb4f4f;
+}
+
+.radio-btn:hover {
+  background-color: #d95c5c;
+  cursor: pointer;
+  color: white;
+  border: 1px #d95c5c solid;
+}
+
+.radio-btn:active {
+  transform: translate(0px, 4px);
+  box-shadow: none;
+}
+
+.preference-form {
+  margin: auto;
+  text-align: center;
+}
+
+.pick-food-btn {
+  display: block;
+  text-align: center;
+}
+
+.yelp-results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.yelp-restaurant {
+  border: 1px rgb(166, 166, 166) solid;
+  background: rgb(248, 248, 248);
+  border-radius: 5%;
+  padding: 30px;
+  margin: 10px;
+  font-size: 15px;
+  transition: 0.3s ease-in;
+}
+
+.yelp-restaurant:hover {
+  border: solid 1px #d95c5c;
+  box-shadow: 5px 5px 5px #d95c5c;
+  cursor: pointer;
+}
+
+.nav {
+  background: #d95c5c;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr)
+}
+
+.nav-item-logo {
+  grid-column: 1/3;
+}
+
+.nav-item-logout {
+  grid-column: 4;
+  margin: auto;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.login a {
+  color: white;
+  text-align: right;
+}
+
+.start-pick-btn {
+  text-align: center;
+}

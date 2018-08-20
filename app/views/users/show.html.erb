@@ -1,3 +1,14 @@
-<h1><%=  @user.name%> Show Page</h1>
+<p id="notice"><%= notice %></p>
 
-<%= link_to "Pick Food", new_preference_path %>
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @user.password_digest %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

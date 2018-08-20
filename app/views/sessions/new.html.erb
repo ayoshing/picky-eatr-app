@@ -1,0 +1,25 @@
+<h2 class="logo">Login</h2>
+
+<%= form_with(scope: "session", url: sessions_path, local: true, html:{class:'ui form'}) do |form| %>
+  <% if @error %>
+    <div id="error_explanation" style="text-align:center">
+      <h2>An error prohibited this user from being saved:</h2>
+
+      <%= @error %>
+    </div>
+  <% end %>
+
+  <div class="field" style="margin:5px 200px">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="field" style="margin:5px 200px">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="pick-food-btn" style="margin:20px 0">
+    <%= form.submit "Log in", class:"actions ui red large button"%>
+  </div>
+<% end %>
