@@ -1,0 +1,36 @@
+
+<% if @cuisines_preferences.length > 0 %>
+<h2 class="logo">Pick one:</h2>
+
+<div class="preference-form "><%= form_for @cuisines_preference, html:{class:'ui segment flex-container'} do |f| %>
+<%= f.collection_radio_buttons :cuisine_id, @match_cuisines, :id, :name do |rb| %>
+<%= rb.label do %>
+<div class="radio-btn">
+<%= rb.radio_button %>
+<%= rb.text %>
+</div>
+<% end %><br>
+<% end %><br>
+</div>
+<div class="pick-food-btn" style="margin-top:10px">
+<%= f.submit "Next", class:"massive ui red button"%>
+</div>
+<%end%>
+<% else %>
+<h2 class="logo">Let's eat! <i class="far fa-grin-hearts" style="font-size:1.5em;margin-top:10px"></i></h2>
+<h2 class="logo">Here are some awesome <%= Cuisine.find(session[:selected_cuisine_id]).name %> restaurants near you:</h2>
+<div class="yelp-results">
+<% @results.each_with_index do |restaurant, num| %>
+<a href="<%= restaurant["url"] %>" class="ui medium rounded image yelp-restaurant">
+    <img src="<%= restaurant["image_url"] %>">
+  <div>
+    <%= num+1 %>. <%= restaurant["name"] %><br>
+    Rating: <%= restaurant["rating"] %><br>
+    <%= pluralize restaurant["review_count"], "review" %><br>
+    Price: <%= restaurant["price"] %><br>
+  </div>
+</a>
+  <% end %>
+</div>
+
+<% end %>

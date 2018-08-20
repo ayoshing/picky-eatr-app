@@ -8,8 +8,12 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
+<<<<<<< HEAD
 gem 'bcrypt'
 gem 'bootstrap', '~> 4.1.1'
+=======
+ gem 'bcrypt', '~> 3.1.7'
+>>>>>>> final-countdown
 # Use sqlite3 as the database for Active Record
 gem "http"
 gem 'pry'

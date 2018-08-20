@@ -11,10 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180709195046) do
 =======
 ActiveRecord::Schema.define(version: 20180711125925) do
 >>>>>>> 3866f856621d49d5a71bd77ddeb1e9f7329b1422
+=======
+ActiveRecord::Schema.define(version: 20180713060749) do
+>>>>>>> final-countdown
 
   create_table "cuisines", force: :cascade do |t|
     t.string "name"
@@ -23,12 +27,18 @@ ActiveRecord::Schema.define(version: 20180711125925) do
   end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   create_table "cuisines_preferences", id: false, force: :cascade do |t|
     t.integer "preference_id", null: false
     t.integer "cuisine_id", null: false
     t.index ["cuisine_id", "preference_id"], name: "index_cuisines_preferences_on_cuisine_id_and_preference_id"
     t.index ["preference_id", "cuisine_id"], name: "index_cuisines_preferences_on_preference_id_and_cuisine_id"
+=======
+  create_table "cuisines_preferences", force: :cascade do |t|
+    t.integer "cuisine_id"
+    t.integer "preference_id"
+>>>>>>> final-countdown
   end
 
 >>>>>>> 3866f856621d49d5a71bd77ddeb1e9f7329b1422
@@ -40,7 +50,6 @@ ActiveRecord::Schema.define(version: 20180711125925) do
   end
 
   create_table "preferences", force: :cascade do |t|
-    t.integer "name"
     t.integer "user_id"
 <<<<<<< HEAD
     t.integer "cuisine_id"
@@ -49,8 +58,11 @@ ActiveRecord::Schema.define(version: 20180711125925) do
 =======
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
     t.string "cuisine_ids"
 >>>>>>> 3866f856621d49d5a71bd77ddeb1e9f7329b1422
+=======
+>>>>>>> final-countdown
   end
 
   create_table "restaurants", force: :cascade do |t|
@@ -60,9 +72,15 @@ ActiveRecord::Schema.define(version: 20180711125925) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
+    t.string "username"
     t.string "name"
-    t.string "user_name"
+    t.string "password_digest"
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
