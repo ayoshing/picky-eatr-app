@@ -1,0 +1,13 @@
+
+<% @matches.flatten.each do |instance| %>
+<%= instance.name %>
+<% end %>
+
+
+
+<%= form_for(@match) do |f| %>
+  <%= f.collection_radio_buttons :match_id, @match, :match_id, :match_name %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

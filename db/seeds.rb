@@ -10,3 +10,7 @@ Cuisine.create(name: "Korean")
 Cuisine.create(name: "Mexican")
 Cuisine.create(name: "Pizza")
 Cuisine.create(name: "Indian")
+
+User.create(name: "Chang")
+User.create(name: "Shing")
+User.create(name: "Sandy")
