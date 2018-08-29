@@ -12,7 +12,7 @@ skip_before_action :authorized?, only: %i[new create]
       log_in_user(@user.id)
       session[:user_id] = @user.id
       redirect_to preferences_path, notice: 'User was successfully created.'
-      byebug
+
     else
       render :new
     end
