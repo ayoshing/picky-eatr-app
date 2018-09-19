@@ -2,16 +2,16 @@
 <% session[:matchup_start] = false %>
 
 <div class="preference-form"><%= form_for @preference, html:{class:'ui segment flex-container'} do |f| %>
-<%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name do |cb| %>
-  <%= cb.label do %>
-  <div class="check-box">
-    <%= cb.check_box class:"check-box-input"%>
-    <%= cb.text %>
-  </div>
+  <%= f.collection_check_boxes :cuisine_ids, Cuisine.all, :id, :name do |cb| %>
+    <%= cb.label do %>
+      <div class="check-box">
+        <%= cb.check_box class:"check-box-input"%>
+        <%= cb.text %>
+      </div>
     <% end %><br>
-    <% end %>
-<div class="pick-food-btn" style="margin:10px 0">
-  <%= f.submit "Let's go!", class:"massive ui red button" %>
-</div>
+  <% end %>
+  <div class="pick-food-btn" style="margin:10px 0">
+    <%= f.submit "Let's go!", class:"massive ui red button" %>
+  </div>
 </div>
 <% end %>

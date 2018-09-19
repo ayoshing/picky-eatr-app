@@ -4,7 +4,9 @@ require 'pry'
 
 class Yelp
 
-  API_KEY = 'htpxG0vBkP__nt9kbBuLT_s4D6OAnlJ97WFO_EiBUXnlo3EMDmcCnQwsjE1zHybIRqh6rHfVdLc5HgxnZlhFwqDJYu0pUjiIuB0ocVnzEYIr_GFtQJ0uuRtJcodDW3Yx'
+
+  API_KEY = ENV["API_KEY"]
+
 
   API_HOST = "https://api.yelp.com"
   SEARCH_PATH = "/v3/businesses/search"
