@@ -30,10 +30,18 @@ ActiveRecord::Schema.define(version: 20180713060749) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "matches", force: :cascade do |t|
+    t.integer "cuisine_id"
+    t.integer "challenger_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "preferences", force: :cascade do |t|
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cuisine_ids"
   end
 
   create_table "restaurants", force: :cascade do |t|
