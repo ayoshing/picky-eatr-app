@@ -29,11 +29,11 @@ API_KEY="whatever_your_yelp_api_key_is"
 
 First signup for an account or login.
 
-![picky-demo-1](https://github.com/ayoshing/picky-eatr-app/tree/master/public/demo/picky-eatr-demo-1.gif)
+[picky-demo-1](https://github.com/ayoshing/picky-eatr-app/tree/master/public/demo/picky-eatr-demo-1.gif)
 
 Users can pick as many cuisine preferences as they like. After selecting all the interested cuisines, Picky Eatr generate a match between preferences to vote on.
 
-![picky-demo-2](https://github.com/ayoshing/picky-eatr-app/tree/master/public/demo/picky-eatr-demo-2.gif)
+[picky-demo-2](https://github.com/ayoshing/picky-eatr-app/tree/master/public/demo/picky-eatr-demo-2.gif)
 
 After the last vote, Picky Eatr will bring the user to the top 5 restaurants around their location recommended by Yelp. On selection of the restaurant, it'll link the user to the restaurant's Yelp page.
 
