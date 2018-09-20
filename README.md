@@ -31,11 +31,13 @@ First signup for an account or login.
 
 ![picky-demo-1](https://github.com/ayoshing/picky-eatr-app/blob/master/public/demo/picky-eatr-demo-1.gif)
 
-Users can pick as many cuisine preferences as they like. After selecting all the interested cuisines, Picky Eatr generate a match between preferences to vote on.
+Users can pick as many cuisine preferences as they like. After selecting all the interested cuisines, Picky Eatr will generate a matchup between preferences to vote on.
 
-![picky-demo-2](https://github.com/ayoshing/picky-eatr-app/blob/master/public/demo/picky-eatr-demo-2.gif)
+![picky-demo-battle](https://github.com/ayoshing/picky-eatr-app/blob/master/public/demo/picky-demo-battle.gif)
 
-After the last vote, Picky Eatr will bring the user to the top 5 restaurants around their location recommended by Yelp. On selection of the restaurant, it'll link the user to the restaurant's Yelp page.
+After the last round, Picky Eatr will show the top 5 restaurants around their location recommended by Yelp. Click on the restaurant and it'll link to the restaurant's Yelp page.
+
+![picky-demo-yelp](https://github.com/ayoshing/picky-eatr-app/blob/master/public/demo/picky-demo-yelp.gif)
 
 [Video Demo](https://youtu.be/JiDseL77Noo)
 
