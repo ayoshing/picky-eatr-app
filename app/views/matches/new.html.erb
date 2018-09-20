@@ -1,0 +1,7 @@
+<h1>Match New Page</h1>
+
+<%= form_for @match do |f| %>
+<%= f.collection_check_boxes :cuisine_id, Match.all, :id, :name %><br>
+<%= f.collection_check_boxes :challenger_id, Match.all, :id, :name %><br>
+<%= f.submit "Game begin" %>
+<% end %>
