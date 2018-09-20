@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180711125925) do
-=======
 ActiveRecord::Schema.define(version: 20180713060749) do
->>>>>>> final-countdown
 
   create_table "cuisines", force: :cascade do |t|
     t.string "name"
@@ -21,18 +18,11 @@ ActiveRecord::Schema.define(version: 20180713060749) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cuisines_preferences", id: false, force: :cascade do |t|
-    t.integer "preference_id", null: false
-    t.integer "cuisine_id", null: false
-    t.index ["cuisine_id", "preference_id"], name: "index_cuisines_preferences_on_cuisine_id_and_preference_id"
-    t.index ["preference_id", "cuisine_id"], name: "index_cuisines_preferences_on_preference_id_and_cuisine_id"
-=======
   create_table "cuisines_preferences", force: :cascade do |t|
     t.integer "cuisine_id"
     t.integer "preference_id"
   end
 
->>>>>>> 3866f856621d49d5a71bd77ddeb1e9f7329b1422
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id"
     t.integer "restaurant_id"
@@ -44,10 +34,6 @@ ActiveRecord::Schema.define(version: 20180713060749) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
-    t.string "cuisine_ids"
-=======
->>>>>>> final-countdown
   end
 
   create_table "restaurants", force: :cascade do |t|

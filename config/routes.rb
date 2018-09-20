@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :restaurants
   resources :favorites
   resources :cuisines
-  resources :preferences
+  resources :preferences do
+    resources :matches
+  end
   resources :users
   resources :cuisines_preferences
   delete '/logout', to: 'sessions#destroy', as: 'logout'
