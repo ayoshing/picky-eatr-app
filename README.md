@@ -6,8 +6,6 @@ Picky Eatr was created with Ruby on Rails and was intended to solve an age old q
 
 ## Installation
 
-OS X & Linux:
-
 ```sh
 bundle install
 rails db:migrate
@@ -64,5 +62,3 @@ Distributed under the MIT license. See `LICENSE` for more information.
 3.  Commit your changes (`git commit -am 'Add some fooBar'`)
 4.  Push to the branch (`git push origin feature/fooBar`)
 5.  Create a new Pull Request
-
-<!-- Markdown link & img dfn's -->
