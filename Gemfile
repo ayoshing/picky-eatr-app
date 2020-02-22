@@ -15,7 +15,7 @@ gem 'pry'
 gem 'sqlite3'
 gem "json"
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem "puma", ">= 3.12.2"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -58,3 +58,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'dotenv-rails'
+
+gem "actionview", ">= 5.1.6.2"
+gem "nokogiri", ">= 1.10.4"
+gem "loofah", ">= 2.3.1"
+gem "rack", ">= 2.0.8"
